@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Đà Nẵng 2026 — Hành trình ba gia đình</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#7EC4E0;--sky-deep:#3F92BC;--sand:#F3E9D8;--cream:#FBF7F0;
+  --red:#E4002B;--ink:#27323A;--slate:#5E6B73;--line:#E8E0D2;--white:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Be Vietnam Pro',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 22px}
+.script{font-family:'Dancing Script',cursive}
+.hero{position:relative;text-align:center;color:#fff;padding:70px 0 120px;overflow:hidden;background:linear-gradient(180deg,#9AD3E8 0%,#7EC4E0 38%,#BFE0E8 70%,var(--cream) 100%)}
+.hero .clouds{position:absolute;inset:0;opacity:.5;pointer-events:none}
+.hero .clouds span{position:absolute;background:#fff;border-radius:50%;filter:blur(8px);opacity:.7}
+.c1{width:120px;height:40px;top:60px;left:8%}
+.c2{width:90px;height:30px;top:120px;right:12%}
+.c3{width:70px;height:24px;top:40px;right:30%}
+.hero .brand{font-size:14px;letter-spacing:1px;font-weight:600;text-transform:lowercase;margin-bottom:34px;position:relative;z-index:2;text-shadow:0 1px 4px rgba(0,0,0,.15)}
+.hero .brand b{font-weight:700}
+.hero .script-title{font-size:clamp(46px,13vw,82px);line-height:.9;position:relative;z-index:2;color:#fff;text-shadow:0 3px 16px rgba(63,146,188,.35);font-weight:700}
+.hero .script-title .l2{display:block;margin-top:-6px}
+.hero .sub{position:relative;z-index:2;margin:22px auto 0;max-width:480px;font-weight:400;font-size:clamp(15px,2.4vw,18px);color:#1F3A47;text-shadow:0 1px 2px rgba(255,255,255,.4)}
+.hero .sea{position:absolute;left:0;right:0;bottom:0;height:130px;z-index:1}
+.hero .stones{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:3px}
+.stone{background:rgba(60,72,80,.55);border-radius:50%}
+.s1{width:54px;height:22px}.s2{width:74px;height:28px}.s3{width:96px;height:34px}
+.lotus{font-size:20px;margin-bottom:2px}
+.intro{text-align:center;padding:8px 0 50px;margin-top:-30px;position:relative;z-index:3}
+.intro h1{color:var(--red);font-size:clamp(30px,7vw,46px);font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.divider{width:54px;height:3px;background:var(--red);margin:14px auto 24px;border-radius:3px}
+.intro p{color:var(--slate);max-width:560px;margin:0 auto;font-weight:300}
+.facts{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:34px 0 10px}
+.fact{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:16px 22px;text-align:center;min-width:104px;box-shadow:0 6px 18px rgba(63,146,188,.06)}
+.fact .big{font-size:30px;font-weight:700;color:var(--sky-deep);line-height:1}
+.fact .lab{font-size:12px;color:var(--slate);margin-top:6px;letter-spacing:.5px}
+.sec{padding:46px 0}
+.sec-head{text-align:center;margin-bottom:30px}
+.sec-head .eyebrow{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--red);font-weight:700}
+.sec-head h2{font-size:clamp(24px,5vw,34px);font-weight:700;margin-top:6px;letter-spacing:-.3px}
+.fams{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.fam{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px 18px;text-align:center;transition:transform .25s}
+.fam:hover{transform:translateY(-4px)}
+.fam .cnt{font-size:34px;font-weight:700;color:var(--sky-deep)}
+.fam h3{font-size:17px;font-weight:700;margin:4px 0}
+.fam p{font-size:13px;color:var(--slate);font-weight:300}
+.day{background:var(--white);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:14px;box-shadow:0 6px 20px rgba(63,146,188,.05)}
+.day-cover{position:relative;height:0;overflow:hidden;transition:height .45s ease;background:linear-gradient(135deg,var(--sky),var(--sky-deep))}
+.day.open .day-cover{height:170px}
+.day-cover img{width:100%;height:100%;object-fit:cover;display:block}
+.day-cover .emoji{position:absolute;inset:0;display:grid;place-items:center;font-size:60px;filter:drop-shadow(0 3px 8px rgba(0,0,0,.2))}
+.day-cover .cap{position:absolute;left:0;right:0;bottom:0;padding:14px 22px;color:#fff;font-weight:600;font-size:14px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.55));z-index:2}
+.day-head{display:flex;align-items:center;gap:16px;padding:18px 22px;cursor:pointer;user-select:none}
+.day-head:hover{background:#F6FBFD}
+.dd{flex-shrink:0;text-align:center;border-radius:14px;padding:9px 0;width:60px;background:linear-gradient(160deg,var(--sky),var(--sky-deep));color:#fff}
+.dd .n{font-size:26px;font-weight:700;line-height:.9}
+.dd .m{font-size:10px;letter-spacing:1px;text-transform:uppercase;opacity:.9}
+.day-head .info{flex:1}
+.day-head .dow{font-size:11px;font-weight:700;color:var(--red);letter-spacing:1px;text-transform:uppercase}
+.day-head h3{font-size:18px;font-weight:700;letter-spacing:-.2px}
+.ar{flex-shrink:0;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:11px;color:var(--slate);transition:transform .3s}
+.day.open .ar{transform:rotate(180deg);border-color:var(--sky-deep);color:var(--sky-deep)}
+.day-body{max-height:0;overflow:hidden;transition:max-height .45s ease}
+.day.open .day-body{max-height:3000px}
+.day-in{padding:2px 22px 22px}
+.ev{display:flex;gap:16px;padding:13px 0;border-top:1px dashed var(--line)}
+.ev:first-child{border-top:none}
+.ev .t{flex-shrink:0;min-width:62px;font-weight:700;color:var(--sky-deep);font-size:15px;padding-top:2px}
+.ev .b strong{font-weight:600;font-size:15.5px;display:block}
+.ev .b .note{font-size:13px;color:var(--slate);font-weight:300;margin-top:2px}
+.ev .b .who{display:inline-block;margin-top:6px;font-size:11.5px;font-weight:600;background:#EAF6FB;color:var(--sky-deep);padding:3px 10px;border-radius:6px}
+.ev .b .who.all{background:var(--ink);color:#fff}
+.ev .acts{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+.act{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;text-decoration:none;padding:5px 12px;border-radius:8px;border:1px solid var(--line);color:var(--sky-deep);background:#fff;transition:background .2s}
+.act:hover{background:#EAF6FB}
+.act.call{color:var(--red);border-color:#F6D5DC}
+.act svg{width:13px;height:13px}
+.mapsec{padding:10px 0 46px}
+.mapcard{display:block;text-decoration:none;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 6px 20px rgba(63,146,188,.06);position:relative;transition:transform .25s}
+.mapcard:hover{transform:translateY(-3px)}
+.mapcard .mimg{height:300px;background:linear-gradient(135deg,#9AD3E8,#3F92BC);position:relative;display:grid;place-items:center}
+.mapcard .mimg::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 40%,rgba(255,255,255,.25),transparent 60%)}
+.mapcard .pin{font-size:54px;filter:drop-shadow(0 4px 10px rgba(0,0,0,.25));z-index:2}
+.mapcard .mbar{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;background:var(--white)}
+.mapcard .mbar .mt{font-weight:700;font-size:16px;color:var(--ink)}
+.mapcard .mbar .ms{font-size:13px;color:var(--slate);font-weight:300}
+.mapcard .mbtn{font-size:13px;font-weight:700;color:var(--sky-deep);white-space:nowrap}
+.maplist{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+.maplist a{font-size:13px;font-weight:600;text-decoration:none;color:var(--sky-deep);background:#fff;border:1px solid var(--line);padding:7px 14px;border-radius:20px;transition:background .2s}
+.maplist a:hover{background:#EAF6FB}
+.foot{text-align:center;padding:50px 0 60px;background:linear-gradient(180deg,var(--cream),#EAF4F7)}
+.foot .script{color:var(--red);font-size:46px;line-height:.9}
+.foot p{color:var(--slate);font-size:14px;margin-top:10px;font-weight:300}
+.foot .h{color:var(--red)}
+@media(max-width:600px){.fams{grid-template-columns:1fr}.day-head{padding:15px 16px;gap:12px}.day-in{padding:2px 16px 18px}.ev .t{min-width:54px}.mapcard .mimg{height:220px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     KHU VUC SUA NOI DUNG - Mr. Tuan chi sua trong vung nay.
+     Moi su kien: time | text | note | who | (tuy chon) map | phone.
+       who  = "all" nghia la ca doan.
+       map  = ten dia diem de chi duong (de "" neu khong can nut chi duong)
+       phone= so dien thoai (de "" neu khong co nut goi)
+     Moi ngay co the them: img (link anh bia) va cap (chu thich anh).
+     ============================================================ -->
+<script>
+const TRIP = {
+  title: "Đà Nẵng",
+  title2: "Hội An",
+  subtitle: "Năm ngày của ba gia đình và ông bà nội — thác Hoà Phú Thành, đỉnh Bà Nà, pháo hoa quốc tế và đêm Hội An.",
+  intro: "Tháng sáu, nắng vàng trải khắp miền Trung. Ba gia đình hẹn nhau về Đà Nẵng — nơi có ông bà, có biển xanh, và những khoảnh khắc bình yên bên nhau.",
+  facts: [
+    { big: "5", lab: "ngày · 18–22/6" },
+    { big: "15", lab: "thành viên" },
+    { big: "3", lab: "gia đình" }
+  ],
+  families: [
+    { cnt: "6", name: "Gia đình Trân", desc: "Tuân, Trân, 2 con gái & ông bà nội" },
+    { cnt: "5", name: "Gia đình Trang", desc: "Trang, Yến Nhã, Kiệt & 2 chị" },
+    { cnt: "4", name: "Gia đình Tonyson", desc: "Đủ 4 thành viên" }
+  ],
+  // Cac dia diem hien tren ban do (ten | toa do de Google Maps nhan dien)
+  places: [
+    "Nhà ông bà nội|117 Lê Đình Dương, Đà Nẵng",
+    "KS Mường Thanh Luxury Sông Hàn|Muong Thanh Luxury Song Han Da Nang",
+    "KDL Hoà Phú Thành|Cong vien suoi khoang nong Hoa Phu Thanh Da Nang",
+    "Cầu Rồng|Cau Rong Da Nang",
+    "Bà Nà Hills|Sun World Ba Na Hills",
+    "Biển Mỹ Khê|My Khe Beach Da Nang",
+    "Hơn Seafood Restaurant|Hon Seafood Restaurant Cua Dai Hoi An",
+    "Phố cổ Hội An|Hoi An Ancient Town",
+    "Công viên Ấn tượng Hội An|Hoi An Impression Theme Park"
+  ],
+  days: [
+    {
+      n: "18", m: "Th6", dow: "Thứ Năm", title: "Đón đoàn — đoàn tụ tại Đà Nẵng", open: true,
+      img: "images/sanbay.jpg", emoji: "✈️",
+      cap: "Sân bay Đà Nẵng — đêm đoàn tụ",
+      events: [
+        { time: "21:00", text: "Tuân bay Hà Nội → Đà Nẵng (đến 22:25)", note: "", who: "Tuân", map: "", phone: "" },
+        { time: "21:20", text: "Trân & 2 con gái bay HCM → Đà Nẵng (đến 22:40)", note: "", who: "GĐ Trân", map: "", phone: "" },
+        { time: "22:40", text: "Gặp nhau tại sân bay Đà Nẵng", note: "", who: "Tuân · Trân · 2 con", map: "Da Nang International Airport", phone: "" },
+        { time: "Tối", text: "Về nghỉ tại nhà ông bà nội", note: "117 Lê Đình Dương, Đà Nẵng", who: "GĐ Trân", map: "117 Lê Đình Dương, Đà Nẵng", phone: "" }
+      ]
+    },
+    {
+      n: "19", m: "Th6", dow: "Thứ Sáu", title: "Trượt thác Hoà Phú Thành & Rồng phun lửa",
+      img: "images/caurong.jpg", emoji: "🐉",
+      cap: "Cầu Rồng phun lửa bên sông Hàn",
+      events: [
+        { time: "09:00", text: "Trang & Yến Nhã + GĐ Tonyson hạ cánh Đà Nẵng", note: "", who: "GĐ Trang · GĐ Tonyson", map: "Da Nang International Airport", phone: "" },
+        { time: "Sáng", text: "Gửi hành lý tại KS Mường Thanh Luxury Sông Hàn", note: "", who: "Trang · Tonyson", map: "Muong Thanh Luxury Song Han Da Nang", phone: "02363828999" },
+        { time: "11:00", text: "Ăn trưa tại nhà ông bà nội", note: "", who: "all", map: "", phone: "" },
+        { time: "12:00", text: "Khởi hành lên KDL Hoà Phú Thành — trượt thác", note: "", who: "all", map: "Cong vien suoi khoang nong Hoa Phu Thanh Da Nang", phone: "" },
+        { time: "17:00", text: "Về Đà Nẵng — nhận phòng KS Mường Thanh", note: "", who: "Trang · Tonyson", map: "Muong Thanh Luxury Song Han Da Nang", phone: "02363828999" },
+        { time: "19:00", text: "Ăn tối khu vực Cầu Rồng", note: "", who: "all", map: "Cau Rong Da Nang", phone: "" },
+        { time: "21:00", text: "Xem Rồng phun lửa & phun nước", note: "", who: "all", map: "Cau Rong Da Nang", phone: "" },
+        { time: "22:00", text: "Kiệt & 2 chị hạ cánh Đà Nẵng — về khách sạn", note: "", who: "GĐ Trang", map: "", phone: "" }
+      ]
+    },
+    {
+      n: "20", m: "Th6", dow: "Thứ Bảy", title: "Bà Nà Hills & pháo hoa quốc tế DIFF",
+      img: "images/bana.jpg", emoji: "🌉",
+      cap: "Cầu Vàng — Bà Nà Hills & pháo hoa DIFF",
+      events: [
+        { time: "08:30", text: "Xuất phát đi Bà Nà Hills", note: "", who: "all", map: "Sun World Ba Na Hills", phone: "" },
+        { time: "16:30", text: "Về lại Đà Nẵng", note: "", who: "all", map: "", phone: "" },
+        { time: "Tối", text: "Buffet tối tại khách sạn", note: "", who: "Trang · Tonyson", map: "", phone: "" },
+        { time: "Tối", text: "Ăn tối tại nhà ông bà nội", note: "", who: "Tuân · Trân", map: "", phone: "" },
+        { time: "18:45", text: "Xuất phát sang khán đài A-VIP xem pháo hoa", note: "", who: "all", map: "Khan dai phao hoa DIFF Da Nang", phone: "" },
+        { time: "Khuya", text: "Nhậu đêm tại biển Mỹ Khê", note: "", who: "all", map: "My Khe Beach Da Nang", phone: "" }
+      ]
+    },
+    {
+      n: "21", m: "Th6", dow: "Chủ Nhật", title: "Hội An — phố cổ & Ký ức Hội An",
+      img: "images/hoian.jpg", emoji: "🏮",
+      cap: "Đèn lồng phố cổ Hội An",
+      events: [
+        { time: "Sáng", text: "Ăn sáng, cà phê, nghỉ ngơi", note: "", who: "all", map: "", phone: "" },
+        { time: "12:00", text: "Vào Hội An — ăn trưa Hơn Seafood Restaurant", note: "Bãi biển Cửa Đại", who: "all", map: "Hon Seafood Restaurant Cua Dai Hoi An", phone: "" },
+        { time: "15:00", text: "Dạo phố cổ Hội An", note: "", who: "all", map: "Hoi An Ancient Town", phone: "" },
+        { time: "17:00", text: "Tham quan Công viên Văn hoá Ấn tượng Hội An & ăn tối nhẹ", note: "Khu ẩm thực trong công viên", who: "all", map: "Hoi An Impression Theme Park", phone: "" },
+        { time: "20:00", text: "Thưởng thức show Ký ức Hội An", note: "", who: "all", map: "Hoi An Memories Show", phone: "" },
+        { time: "21:15", text: "Về Đà Nẵng — nhậu tiếp nếu còn sức :)", note: "", who: "all", map: "", phone: "" }
+      ]
+    },
+    {
+      n: "22", m: "Th6", dow: "Thứ Hai", title: "Ngày cuối — tiễn đoàn",
+      img: "images/tambiet.jpg", emoji: "👋",
+      cap: "Tạm biệt Đà Nẵng",
+      events: [
+        { time: "Sáng", text: "Tự do ăn sáng, cà phê", note: "", who: "all", map: "", phone: "" },
+        { time: "10:45", text: "Trân & 2 con gái ra sân bay (chuyến 12:00 về HCM)", note: "", who: "GĐ Trân", map: "Da Nang International Airport", phone: "" },
+        { time: "11:45", text: "GĐ Trang + GĐ Tonyson ra sân bay (chuyến 13:00 về HCM)", note: "Check-out khách sạn 12:00", who: "Trang · Tonyson", map: "Da Nang International Airport", phone: "" },
+        { time: "20:30", text: "Tuân bay về Hà Nội", note: "", who: "Tuân", map: "Da Nang International Airport", phone: "" }
+      ]
+    }
+  ]
+};
+</script>
+<!-- ============ KET THUC KHU VUC SUA NOI DUNG ============ -->
+
+<header class="hero">
+  <div class="clouds"><span class="c1"></span><span class="c2"></span><span class="c3"></span></div>
+  <div class="brand">SunDai's Family<b>&amp;</b>You</div>
+  <div class="wrap">
+    <div class="script-title script" id="t1"></div>
+    <p class="sub" id="sub"></p>
+  </div>
+  <div class="stones">
+    <div class="lotus">🌸</div>
+    <div class="stone s1"></div><div class="stone s2"></div><div class="stone s3"></div>
+  </div>
+  <svg class="sea" viewBox="0 0 760 130" preserveAspectRatio="none">
+    <path d="M0,60 C150,20 300,90 450,55 C600,25 700,80 760,55 L760,130 L0,130 Z" fill="#BFE0E8" opacity=".7"/>
+    <path d="M0,80 C150,50 320,110 480,75 C620,45 710,95 760,75 L760,130 L0,130 Z" fill="#FBF7F0"/>
+  </svg>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <h1 id="hd"></h1>
+    <div class="divider"></div>
+    <p id="intro"></p>
+    <div class="facts" id="facts"></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">Thành phần đoàn</div><h2>Ba gia đình, một hành trình</h2></div>
+    <div class="fams" id="fams"></div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">Lịch trình chi tiết</div><h2>Từng ngày, từng khoảnh khắc</h2></div>
+    <div id="timeline"></div>
+  </div>
+</section>
+
+<section class="mapsec">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">Bản đồ hành trình</div><h2>Các điểm đến chính</h2></div>
+    <a class="mapcard" target="_blank" rel="noopener"
+       href="https://www.google.com/maps/search/?api=1&query=Da+Nang+Vietnam">
+      <div class="mimg"><span class="pin">📍</span></div>
+      <div class="mbar">
+        <div><div class="mt">Đà Nẵng — Hội An</div><div class="ms">9 điểm đến chính trong hành trình</div></div>
+        <div class="mbtn">Mở bản đồ →</div>
+      </div>
+    </a>
+    <div class="maplist" id="maplist"></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="script">khoảng bình yên</div>
+    <p>Hành trình của ba gia đình <span class="h">&#9829;</span> Cùng nhau viết nên kỷ niệm · Hè 2026</p>
+  </div>
+</footer>
+
+<script>
+function gmaps(q){ return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q); }
+var ICON_PIN = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>';
+var ICON_PHONE = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.3 1l-2.1 2.2z"/></svg>';
+
+document.getElementById('t1').innerHTML = TRIP.title + '<span class="l2">' + TRIP.title2 + '</span>';
+document.getElementById('sub').textContent = TRIP.subtitle;
+document.getElementById('hd').textContent = "Lời chào";
+document.getElementById('intro').textContent = TRIP.intro;
+document.getElementById('facts').innerHTML = TRIP.facts.map(function(f){
+  return '<div class="fact"><div class="big">'+f.big+'</div><div class="lab">'+f.lab+'</div></div>'; }).join('');
+document.getElementById('fams').innerHTML = TRIP.families.map(function(f){
+  return '<div class="fam"><div class="cnt">'+f.cnt+'</div><h3>'+f.name+'</h3><p>'+f.desc+'</p></div>'; }).join('');
+
+document.getElementById('timeline').innerHTML = TRIP.days.map(function(d){
+  var evs = d.events.map(function(e){
+    var whoClass = e.who === 'all' ? 'who all' : 'who';
+    var whoText = e.who === 'all' ? 'Cả đoàn' : e.who;
+    var note = e.note ? '<div class="note">'+e.note+'</div>' : '';
+    var acts = '';
+    if(e.map){ acts += '<a class="act" target="_blank" rel="noopener" href="'+gmaps(e.map)+'">'+ICON_PIN+'Chỉ đường</a>'; }
+    if(e.phone){ acts += '<a class="act call" href="tel:'+e.phone+'">'+ICON_PHONE+'Gọi</a>'; }
+    if(acts){ acts = '<div class="acts">'+acts+'</div>'; }
+    return '<div class="ev"><div class="t">'+e.time+'</div><div class="b"><strong>'+e.text+'</strong>'+note+'<span class="'+whoClass+'">'+whoText+'</span>'+acts+'</div></div>';
+  }).join('');
+  var inner = d.img ? '<img src="'+d.img+'" alt="'+(d.cap||'')+'" onerror="this.style.display=\'none\'">' : '<div class="emoji">'+(d.emoji||'🌴')+'</div>';
+  var cover = '<div class="day-cover">'+inner+'<div class="cap">'+(d.cap||'')+'</div></div>';
+  return '<div class="day'+(d.open?' open':'')+'"><div class="day-head"><div class="dd"><div class="n">'+d.n+'</div><div class="m">'+d.m+'</div></div><div class="info"><div class="dow">'+d.dow+'</div><h3>'+d.title+'</h3></div><div class="ar">&#9660;</div></div>'+cover+'<div class="day-body"><div class="day-in">'+evs+'</div></div></div>';
+}).join('');
+
+document.getElementById('maplist').innerHTML = TRIP.places.map(function(p){
+  var parts = p.split('|'); var label = parts[0]; var q = parts[1] || parts[0];
+  return '<a target="_blank" rel="noopener" href="'+gmaps(q)+'">📍 '+label+'</a>';
+}).join('');
+
+document.querySelectorAll('.day-head').forEach(function(h){
+  h.addEventListener('click', function(){ h.parentElement.classList.toggle('open'); });
+});
+</script>
+</body>
+</html>
